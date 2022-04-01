@@ -10,6 +10,9 @@ public class PlayerScript : MonoBehaviour
     private Animator anim;
     public int health = 5;
     public float attackCooldown;
+    public float invulnerability;
+    public bool attacking = false;
+    public GameObject hitBox;
 
 
     // Start is called before the first frame update
@@ -23,10 +26,25 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        invulnerability -= Time.deltaTime;
      
+
+
         DoJump();
         DoMove();
         DoAttack();
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightAttack"))
+        {
+            attacking = true;
+            
+        }
+        else
+        {
+            attacking = false;
+            hitBox.SetActive(false);
+        }
 
         
 
@@ -42,6 +60,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (velocity.y < 0.01f)
             {
+                anim.SetBool("Attack", false);
                 velocity.y = 10f;
 
             }
@@ -82,11 +101,20 @@ public class PlayerScript : MonoBehaviour
         {
             velocity.x = -7;
         }
+        if (Input.GetKey ("a") && attacking == true)
+        {
+            velocity.x = -4;
+        }
+
 
         // check for moving right
         if (Input.GetKey("d"))
         {
             velocity.x = 7;
+        }
+        if (Input.GetKey("d") && attacking == true)
+        {
+            velocity.x = 4;
         }
 
         if (velocity.x > 0 || velocity.x < 0)
@@ -104,10 +132,12 @@ public class PlayerScript : MonoBehaviour
         if (velocity.x < -0.5)
         {
             Helper.FlipSprite(gameObject, Left);
+     
         }
         if (velocity.x > 0.5f)
         {
             Helper.FlipSprite(gameObject, Right);
+ 
         }
     }
 
@@ -119,15 +149,35 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && result == true && attackCooldown < 0)
         {
+           
             anim.SetBool("Attack", true);
-            attackCooldown = 0.65f;
+            attackCooldown = 0.7f;
         }
        
+
     }
 
     void EndAttack()
     {
         anim.SetBool("Attack", false);
+    }
+
+    void ActivateHitbox()
+    {
+        hitBox.SetActive(true);
+    }
+
+    void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.gameObject.tag == "EnemyAttackBox" && invulnerability < 0)
+        {
+            health = health - 1;
+            
+
+            invulnerability = 2;
+
+        }
+  
     }
 
 
