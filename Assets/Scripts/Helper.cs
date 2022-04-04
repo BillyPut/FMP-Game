@@ -48,9 +48,9 @@ public class Helper : MonoBehaviour
 
     public static bool DoRayCollisionCheck(GameObject obj)
     {
-        float rayLength = 1.0f;
+        float rayLength = 0.5f;
         float x = obj.transform.position.x - 0.05f;
-        float y = obj.transform.position.y - 0.5f;
+        float y = obj.transform.position.y - 0.1f;
 
         //cast a ray downward of length 1
         RaycastHit2D hit = Physics2D.Raycast(new Vector3(x, y, obj.transform.position.z), -Vector2.up, rayLength);

@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float invulnerability;
     public bool attacking = false;
     public GameObject hitBox;
+    public bool damaged;
 
 
     // Start is called before the first frame update
@@ -29,7 +30,10 @@ public class PlayerScript : MonoBehaviour
 
         invulnerability -= Time.deltaTime;
      
-
+        if (health == 0)
+        {
+            anim.SetBool("Death", true);
+        }
 
         DoJump();
         DoMove();
@@ -46,8 +50,23 @@ public class PlayerScript : MonoBehaviour
             hitBox.SetActive(false);
         }
 
-        
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightHit"))
+        {
+            damaged = true;
+            attacking = false;
+            hitBox.SetActive(false);
+            anim.SetBool("Attack", false);
+        }
+        else
+        {
+            damaged = false;
+        }
 
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightDeath"))
+        {
+            Helper.SetVelocity(0f, 0f, gameObject);
+            
+        }
     }
 
     void DoJump()
@@ -94,27 +113,30 @@ public class PlayerScript : MonoBehaviour
         Vector2 velocity = rb.velocity;
 
         // stop player sliding when not pressing left or right
+       
         velocity.x = 0;
+        
+        
 
         // check for moving left
-        if (Input.GetKey("a"))
+        if (Input.GetKey ("a"))
         {
-            velocity.x = -7;
+            velocity.x = -6.5f;
         }
         if (Input.GetKey ("a") && attacking == true)
         {
-            velocity.x = -4;
+            velocity.x = -3.5f;
         }
 
 
         // check for moving right
-        if (Input.GetKey("d"))
+        if (Input.GetKey ("d"))
         {
-            velocity.x = 7;
+            velocity.x = 6.5f;
         }
-        if (Input.GetKey("d") && attacking == true)
+        if (Input.GetKey("d") && attacking == true && damaged == false)
         {
-            velocity.x = 4;
+            velocity.x = 3.5f;
         }
 
         if (velocity.x > 0 || velocity.x < 0)
@@ -162,6 +184,15 @@ public class PlayerScript : MonoBehaviour
         anim.SetBool("Attack", false);
     }
 
+    void EndHit()
+    {
+        anim.SetBool("Hit", false);
+    }
+
+    void KillPlayer()
+    {
+        Destroy(gameObject);
+    }
     void ActivateHitbox()
     {
         hitBox.SetActive(true);
@@ -169,6 +200,9 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D other)
     {
+        Debug.Log(other.gameObject.tag);
+        
+
         if (other.gameObject.tag == "EnemyAttackBox" && invulnerability < 0)
         {
             health = health - 1;
@@ -176,9 +210,30 @@ public class PlayerScript : MonoBehaviour
 
             invulnerability = 2;
 
+
+            Helper.SetVelocity(20f, 2.5f, gameObject);
+            anim.SetBool("Hit", true);
+
+
         }
-  
+
+        if (other.gameObject.tag == "Enemy" && invulnerability < 0)
+        {
+            health = health - 1;
+
+
+            invulnerability = 2;
+
+
+            Helper.SetVelocity(20f, 2.5f, gameObject);
+            anim.SetBool("Hit", true);
+        }
+
+
+
     }
+
+
 
 
 }

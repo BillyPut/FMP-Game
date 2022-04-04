@@ -11,6 +11,7 @@ public class SkeletonScript : MonoBehaviour
     public float attackCooldown;
     public GameObject enemyHitBox;
     public GameObject player;
+    public bool attacking;
 
 
     // Start is called before the first frame update
@@ -27,17 +28,40 @@ public class SkeletonScript : MonoBehaviour
 
         FollowPlayer();
 
+        if (health == 0)
+        {
+            anim.SetBool("Death", true);
+        }
+
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("SkeletonAttack"))
         {
-            
+            attacking = true;
 
         }
         else
         {
-           
+            
             enemyHitBox.SetActive(false);
+            attacking = false;
+
         }
 
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("SkeletonHit"))
+        {
+            attacking = false;
+            anim.SetBool("Attack", false);
+            attackCooldown = 2.5f;
+
+        }
+
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("SkeletonDeath"))
+        {
+            attacking = false;
+            anim.SetBool("Attack", false);
+            Helper.SetVelocity(0f, 0f, gameObject);
+
+        }
 
 
     }
@@ -57,6 +81,7 @@ public class SkeletonScript : MonoBehaviour
 
         Vector2 velocity = rb.velocity;
 
+        velocity.x = 0;
 
         if (distx < 15 && distx > 0 && disty < 2 && disty > -2)
         {
@@ -69,15 +94,27 @@ public class SkeletonScript : MonoBehaviour
             velocity.x = 2;
 
         }
-        if (distx < 3 && distx > -3 && distx > 0 && disty < 2 && disty > -2 && attackCooldown < 0)
+        if (distx < 4 && distx > 0 && disty < 2 && disty > -2 && attackCooldown < 0)
         {
+            attacking = true;
             velocity.x = 0;
+            Helper.FlipSprite(gameObject, Right);
             anim.SetBool("Attack", true);
-            attackCooldown = 1.5f;
+            attackCooldown = 2.5f;
 
 
         }
-        else
+        if (distx < 0 && distx > -4 && disty < 2 && disty > -2 && attackCooldown < 0)
+        {
+            attacking = true;
+            velocity.x = 0;
+            Helper.FlipSprite(gameObject, Left);
+            anim.SetBool("Attack", true);
+            attackCooldown = 2.5f;
+
+
+        }
+        if (attacking == true)
         {
             velocity.x = 0;
             
@@ -119,9 +156,40 @@ public class SkeletonScript : MonoBehaviour
         enemyHitBox.SetActive(false);
     }
 
+    void EndHit()
+    {
+        anim.SetBool("Hit", false);
+    }
+
     void ActivateHitbox()
     {
         enemyHitBox.SetActive(true);
+    }
+
+    void KillSkeleton()
+    {
+        Destroy(gameObject);
+    }
+       
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+
+        if (other.gameObject.tag == "PlayerAttackBox")
+        {
+            health = health - 1;
+
+
+           
+
+
+            
+            anim.SetBool("Hit", true);
+
+
+        }
+
     }
 
 

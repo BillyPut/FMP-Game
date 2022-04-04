@@ -6,7 +6,7 @@ public class OffsetScript : MonoBehaviour
 {
 
     public GameObject player;
-    private Vector3 offset = new Vector3(0f, 0.5f, -5f);
+    private Vector3 offset = new Vector3(0f, 1f, -5f);
 
 
     // Start is called before the first frame update
