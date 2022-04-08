@@ -9,11 +9,16 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public int health = 5;
+    public int collectibles = 0;
     public float attackCooldown;
+    public float dashCooldown;
     public float invulnerability;
     public bool attacking = false;
     public GameObject hitBox;
     public bool damaged;
+    public bool dash = false;
+    public bool dashing = false;
+    public bool facingLeft = false;
 
 
     // Start is called before the first frame update
@@ -112,32 +117,64 @@ public class PlayerScript : MonoBehaviour
     {
         Vector2 velocity = rb.velocity;
 
-        // stop player sliding when not pressing left or right
        
-        velocity.x = 0;
+       
+        if (dashing == false)
+        {
+            velocity.x = 0;
+        }
+        
+
+        dashCooldown -= Time.deltaTime;
         
         
+        if (dashing == false)
+        {
+            if (Input.GetKey("a"))
+            {
+                velocity.x = -6.5f;
+            }
+            if (Input.GetKey("a") && attacking == true)
+            {
+                velocity.x = -3.5f;
+            }
 
-        // check for moving left
-        if (Input.GetKey ("a"))
-        {
-            velocity.x = -6.5f;
-        }
-        if (Input.GetKey ("a") && attacking == true)
-        {
-            velocity.x = -3.5f;
+
+
+            if (Input.GetKey("d"))
+            {
+                velocity.x = 6.5f;
+            }
+            if (Input.GetKey("d") && attacking == true)
+            {
+                velocity.x = 3.5f;
+            }
+
         }
 
 
-        // check for moving right
-        if (Input.GetKey ("d"))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dash == true && dashCooldown <= 0)
         {
-            velocity.x = 6.5f;
+            dashing = true;
+            dashCooldown = 3f;
+
         }
-        if (Input.GetKey("d") && attacking == true && damaged == false)
+
+        if (dashCooldown <= 2.85f)
         {
-            velocity.x = 3.5f;
+            dashing = false;
         }
+        if (facingLeft == true && dashCooldown > 2.85f)
+        {
+            velocity.x = -25f;
+            velocity.y = 0;
+        }
+        if (facingLeft == false && dashCooldown > 2.85f)
+        {
+            velocity.x = 25f;
+            velocity.y = 0;
+        }
+
 
         if (velocity.x > 0 || velocity.x < 0)
         {
@@ -154,11 +191,14 @@ public class PlayerScript : MonoBehaviour
         if (velocity.x < -0.5)
         {
             Helper.FlipSprite(gameObject, Left);
+            facingLeft = true;
+
      
         }
         if (velocity.x > 0.5f)
         {
             Helper.FlipSprite(gameObject, Right);
+            facingLeft = false;
  
         }
     }
@@ -169,7 +209,7 @@ public class PlayerScript : MonoBehaviour
 
         attackCooldown -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && result == true && attackCooldown < 0)
+        if (Input.GetMouseButtonDown(0) && result == true && attackCooldown <= 0)
         {
            
             anim.SetBool("Attack", true);
@@ -198,12 +238,17 @@ public class PlayerScript : MonoBehaviour
         hitBox.SetActive(true);
     }
 
+    public void UnlockDash()
+    {
+        dash = true;
+    }
+
     void OnTriggerEnter2D (Collider2D other)
     {
-        Debug.Log(other.gameObject.tag);
+        
         
 
-        if (other.gameObject.tag == "EnemyAttackBox" && invulnerability < 0)
+        if (other.gameObject.tag == "EnemyAttackBox" && invulnerability <= 0)
         {
             health = health - 1;
             
@@ -217,7 +262,7 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "Enemy" && invulnerability < 0)
+        if (other.gameObject.tag == "Enemy" && invulnerability <= 0)
         {
             health = health - 1;
 
@@ -232,6 +277,8 @@ public class PlayerScript : MonoBehaviour
 
 
     }
+
+
 
 
 
