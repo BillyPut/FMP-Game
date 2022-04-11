@@ -24,7 +24,8 @@ public class SkeletonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+        
 
         FollowPlayer();
 
@@ -50,6 +51,7 @@ public class SkeletonScript : MonoBehaviour
         {
             attacking = false;
             anim.SetBool("Attack", false);
+            
             attackCooldown = 2.5f;
 
         }
@@ -63,6 +65,7 @@ public class SkeletonScript : MonoBehaviour
 
         }
 
+      
 
     }
 
@@ -119,7 +122,14 @@ public class SkeletonScript : MonoBehaviour
             velocity.x = 0;
             
         }
-      
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("SkeletonHit"))
+        {
+            
+            velocity.x = 0;
+            
+
+        }
 
 
         if (velocity.x > 0 || velocity.x < 0)

@@ -8,6 +8,7 @@ TagManager:
   - PlayerAttackBox
   - EnemyAttackBox
   - Enemy
+  - Collectibles
   layers:
   - Default
   - TransparentFX

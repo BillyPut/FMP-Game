@@ -8,10 +8,15 @@ public class ShopIntro : MonoBehaviour
     public GameObject player;
     public GameObject introText;
     public GameObject buyText;
+    public GameObject refuseText;
+   
     
     public bool shopped = false;
     public bool shopping = false;
+    public bool refused = false;
+    public bool doneText = false;
     public float readTimer = 0.5f;
+    public PlayerScript collectibleTracker;
 
 
     // Start is called before the first frame update
@@ -32,6 +37,8 @@ public class ShopIntro : MonoBehaviour
         float disty = ey - py;
         float distx = ex - px;
 
+        
+
         if (shopping == false && shopped == false)
         {
             if (Input.GetKeyDown("e") && distx < 3 && distx > -3 && disty < 2)
@@ -45,18 +52,46 @@ public class ShopIntro : MonoBehaviour
 
         if (shopping == true)
         {
-            readTimer -= Time.deltaTime;
+            readTimer -= Time.unscaledDeltaTime;
+            Time.timeScale = 0;
         }
-
-        if (shopping == true && Input.GetKeyDown("e") && readTimer < 0)
+        else
         {
-            buyText.SetActive(true);
-            introText.SetActive(false);
-
-
+            Time.timeScale = 1;
         }
 
-       
+        if (shopping == true && Input.GetKeyDown("e") && readTimer < 0 && doneText == false)
+        {
+            if (collectibleTracker.collectibles >= 5)
+            {
+                buyText.SetActive(true);
+                introText.SetActive(false);
+                doneText = true;
+
+
+            }
+            if (collectibleTracker.collectibles < 5)
+            {
+                refuseText.SetActive(true);
+                introText.SetActive(false);
+                readTimer = 0.5f;
+                doneText = true;
+                refused = true;
+                
+            }
+        }
+
+        if (refused == true && Input.GetKeyDown("e") && readTimer < 0)
+        {
+            refuseText.SetActive(false);
+            shopping = false;
+            doneText = false;
+            readTimer = 0.5f;
+            refused = false;
+        }
+
+
+
     }
 
 
@@ -65,6 +100,7 @@ public class ShopIntro : MonoBehaviour
         buyText.SetActive(false);
         shopped = true;
         shopping = false;
+        doneText = false;
         readTimer = 0.5f;
     }
 
@@ -72,6 +108,7 @@ public class ShopIntro : MonoBehaviour
     {
         buyText.SetActive(false);
         shopping = false;
+        doneText = false;
         readTimer = 0.5f;
     }
 }
