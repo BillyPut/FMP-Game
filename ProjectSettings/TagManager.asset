@@ -9,6 +9,7 @@ TagManager:
   - EnemyAttackBox
   - Enemy
   - Collectibles
+  - RespawnBarrier
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - PlayerLayer
+  - EnemyLayer
   - 
   - 
   - 

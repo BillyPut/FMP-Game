@@ -274,11 +274,22 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("Hit", true);
         }
 
+        if (other.gameObject.tag == "RespawnBarrier")
+        {
+            health = health - 1;
+
+            invulnerability = 2;
+
+            anim.SetBool("Hit", true);
+
+        }
+
         if (other.gameObject.tag == "Collectibles")
         {
             collectibles += 1;
         }
 
+       
 
     }
 

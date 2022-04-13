@@ -7,9 +7,12 @@ public class SkeletonScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    private BoxCollider2D box;
     public int health = 3;
     public float attackCooldown;
+    public float invulnerability;
     public GameObject enemyHitBox;
+    public GameObject enemyHurtBox;
     public GameObject player;
     public bool attacking;
 
@@ -19,6 +22,7 @@ public class SkeletonScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        box = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -51,7 +55,8 @@ public class SkeletonScript : MonoBehaviour
         {
             attacking = false;
             anim.SetBool("Attack", false);
-            
+
+            invulnerability = 0.5f;
             attackCooldown = 2.5f;
 
         }
@@ -59,7 +64,9 @@ public class SkeletonScript : MonoBehaviour
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("SkeletonDeath"))
         {
+            enemyHurtBox.SetActive(false);
             attacking = false;
+            box.enabled = false;
             anim.SetBool("Attack", false);
             Helper.SetVelocity(0f, 0f, gameObject);
 
@@ -86,35 +93,43 @@ public class SkeletonScript : MonoBehaviour
 
         velocity.x = 0;
 
-        if (distx < 15 && distx > 0 && disty < 2 && disty > -2)
+        if (distx < 15 && distx > 0 && disty < 2.5 && disty > -2.5)
         {
             velocity.x = -2;
             
 
         }
-        if (distx > -15 && distx < 0 && disty < 2 && disty > -2)
+        if (distx > -15 && distx < 0 && disty < 2.5 && disty > -2.5)
         {
             velocity.x = 2;
 
         }
-        if (distx < 4 && distx > 0 && disty < 2 && disty > -2 && attackCooldown < 0)
+        if (distx < 4 && distx > 0 && disty < 2.5 && disty > -2.5)
         {
-            attacking = true;
             velocity.x = 0;
-            Helper.FlipSprite(gameObject, Right);
-            anim.SetBool("Attack", true);
-            attackCooldown = 2.5f;
+
+            if (attackCooldown < 0)
+            {
+                attacking = true;
+                Helper.FlipSprite(gameObject, Right);
+                anim.SetBool("Attack", true);
+                attackCooldown = 2.5f;
+            }
 
 
         }
-        if (distx < 0 && distx > -4 && disty < 2 && disty > -2 && attackCooldown < 0)
+        if (distx < 0 && distx > -4 && disty < 2.5 && disty > -2.5)
         {
-            attacking = true;
-            velocity.x = 0;
-            Helper.FlipSprite(gameObject, Left);
-            anim.SetBool("Attack", true);
-            attackCooldown = 2.5f;
 
+            velocity.x = 0;
+
+            if (attackCooldown < 0)
+            {
+                attacking = true;
+                Helper.FlipSprite(gameObject, Left);
+                anim.SetBool("Attack", true);
+                attackCooldown = 2.5f;
+            }
 
         }
         if (attacking == true)
