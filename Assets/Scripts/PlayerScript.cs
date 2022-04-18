@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
 
+    
         invulnerability -= Time.deltaTime;
      
         if (health == 0)
