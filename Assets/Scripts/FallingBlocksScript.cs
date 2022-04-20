@@ -6,7 +6,9 @@ public class FallingBlocksScript : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    public float fallTimer = 2.5f;
+    public float setfallTimer;
+    public float fallTimer;
+    public float respawnTimer = 5f;
     public bool playerInteract;
     public bool respawn;
     public float xPosition;
@@ -17,6 +19,7 @@ public class FallingBlocksScript : MonoBehaviour
     {
       
         rb = GetComponent<Rigidbody2D>();
+        fallTimer = setfallTimer;
       
     }
 
@@ -30,6 +33,11 @@ public class FallingBlocksScript : MonoBehaviour
             fallTimer -= Time.deltaTime;
         }
 
+        if (respawn == true)
+        {
+            respawnTimer -= Time.deltaTime;
+        }
+
         if (fallTimer <= 0.5)
         {
             rb.gravityScale = 1;
@@ -38,17 +46,19 @@ public class FallingBlocksScript : MonoBehaviour
             {
                 transform.position = new Vector3(-50, -15, 0);
                 playerInteract = false;
-                fallTimer = 2.5f;
+                fallTimer = setfallTimer;
                 rb.gravityScale = 0;
                 Helper.SetVelocity(0, 0, gameObject);
+                respawn = true;
             }
         }
 
-        if (respawn == true)
+        if (respawnTimer <= 0)
         {
             
             transform.position = new Vector3(xPosition, yPoisiton, 0f);
             respawn = false;
+            respawnTimer = 5f;
         }
        
     }

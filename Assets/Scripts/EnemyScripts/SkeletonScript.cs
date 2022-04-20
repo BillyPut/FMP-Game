@@ -57,7 +57,7 @@ public class SkeletonScript : MonoBehaviour
             anim.SetBool("Attack", false);
 
             invulnerability = 0.5f;
-            attackCooldown = 2.5f;
+            attackCooldown = 1f;
 
         }
 
@@ -93,18 +93,18 @@ public class SkeletonScript : MonoBehaviour
 
         velocity.x = 0;
 
-        if (distx < 15 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 15 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = -2;
             
 
         }
-        if (distx > -15 && distx < 0 && disty < 2.5 && disty > -2.5)
+        if (distx > -15 && distx < 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 2;
 
         }
-        if (distx < 4 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 3.5 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 0;
 
@@ -118,7 +118,7 @@ public class SkeletonScript : MonoBehaviour
 
 
         }
-        if (distx < 0 && distx > -4 && disty < 2.5 && disty > -2.5)
+        if (distx < 0 && distx > -3.5 && disty < 3.5 && disty > -2.5)
         {
 
             velocity.x = 0;

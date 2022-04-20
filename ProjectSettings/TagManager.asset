@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Collectibles
   - RespawnBarrier
+  - HealthCollectibles
   layers:
   - Default
   - TransparentFX

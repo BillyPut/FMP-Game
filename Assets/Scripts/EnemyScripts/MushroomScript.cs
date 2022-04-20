@@ -93,18 +93,18 @@ public class MushroomScript : MonoBehaviour
 
         velocity.x = 0;
 
-        if (distx < 15 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 15 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = -2;
 
 
         }
-        if (distx > -15 && distx < 0 && disty < 2.5 && disty > -2.5)
+        if (distx > -15 && distx < 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 2;
 
         }
-        if (distx < 3 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 3 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 0;
 
@@ -118,7 +118,7 @@ public class MushroomScript : MonoBehaviour
        
 
         }
-        if (distx < 0 && distx > -3 && disty < 2.5 && disty > -2.5)
+        if (distx < 0 && distx > -3 && disty < 3.5 && disty > -2.5)
         {
 
             velocity.x = 0;

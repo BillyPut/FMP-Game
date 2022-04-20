@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject hitBox;
     public bool damaged;
     public bool dash = false;
+    public bool airSlash = false;
     public bool dashing = false;
     public bool facingLeft = false;
 
@@ -244,12 +245,17 @@ public class PlayerScript : MonoBehaviour
         dash = true;
     }
 
+    public void UnlockAirSlash()
+    {
+        airSlash = true;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
 
 
 
-        if (other.gameObject.tag == "EnemyAttackBox" && invulnerability <= 0)
+        if (other.gameObject.tag == "EnemyAttackBox" && invulnerability <= 0 || other.gameObject.tag == "Enemy" && invulnerability <= 0)
         {
             health = health - 1;
 
@@ -261,18 +267,6 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("Hit", true);
 
 
-        }
-
-        if (other.gameObject.tag == "Enemy" && invulnerability <= 0)
-        {
-            health = health - 1;
-
-
-            invulnerability = 2;
-
-
-            Helper.SetVelocity(20f, 2.5f, gameObject);
-            anim.SetBool("Hit", true);
         }
 
         if (other.gameObject.tag == "RespawnBarrier")
@@ -290,6 +284,10 @@ public class PlayerScript : MonoBehaviour
             collectibles += 1;
         }
 
+        if (other.gameObject.tag == "HealthCollectibles")
+        {
+            health += 1;
+        }
        
 
     }

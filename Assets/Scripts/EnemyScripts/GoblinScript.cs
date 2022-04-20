@@ -57,7 +57,7 @@ public class GoblinScript : MonoBehaviour
             anim.SetBool("Attack", false);
 
             invulnerability = 0.5f;
-            attackCooldown = 2.5f;
+            attackCooldown = 2f;
 
         }
 
@@ -93,18 +93,18 @@ public class GoblinScript : MonoBehaviour
 
         velocity.x = 0;
 
-        if (distx < 15 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 15 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = -3;
 
 
         }
-        if (distx > -15 && distx < 0 && disty < 2.5 && disty > -2.5)
+        if (distx > -15 && distx < 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 3;
 
         }
-        if (distx < 3.5 && distx > 0 && disty < 2.5 && disty > -2.5)
+        if (distx < 3.5 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
             velocity.x = 0;
 
@@ -119,7 +119,7 @@ public class GoblinScript : MonoBehaviour
 
 
         }
-        if (distx < 0 && distx > -3.5 && disty < 2.5 && disty > -2.5)
+        if (distx < 0 && distx > -3.5 && disty < 3.5 && disty > -2.5)
         {
             
             velocity.x = 0;
@@ -137,7 +137,6 @@ public class GoblinScript : MonoBehaviour
         
         if (attacking == true)
         {
-            Debug.Log("attacking");
             velocity.x = 0;
 
         }
