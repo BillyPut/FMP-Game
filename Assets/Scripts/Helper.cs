@@ -6,6 +6,7 @@ using static Globals;
 public class Helper : MonoBehaviour
 {
 
+    
 
 
     public static void FlipSprite(GameObject obj, int dir)
@@ -52,8 +53,12 @@ public class Helper : MonoBehaviour
         float x = obj.transform.position.x - 0.05f;
         float y = obj.transform.position.y - 0.1f;
 
+        int layerMask = LayerMask.GetMask("platform");
+
+        print("lm=" + layerMask);
+
         //cast a ray downward of length 1
-        RaycastHit2D hit = Physics2D.Raycast(new Vector3(x, y, obj.transform.position.z), -Vector2.up, rayLength);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector3(x, y, obj.transform.position.z), -Vector2.up, rayLength, layerMask);
 
         Color hitColor = Color.white;
 
@@ -62,10 +67,12 @@ public class Helper : MonoBehaviour
         {
 
 
-            if (hit.collider.tag == "Platform")
+           //if (hit.collider.tag == "Platform")
             {
 
+                
                 hitColor = Color.green;
+                Debug.DrawRay(new Vector3(x, y, obj.transform.position.z), -Vector2.up * rayLength, hitColor);
                 return true;
 
             }

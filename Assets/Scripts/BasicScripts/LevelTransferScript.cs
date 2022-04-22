@@ -8,6 +8,7 @@ public class LevelTransferScript : MonoBehaviour
     public GameObject player;
     public float fadeTimer;
     public bool animationPlay;
+    public GameObject blackBox;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class LevelTransferScript : MonoBehaviour
 
         if (Input.GetKeyDown("e") && distx < 1.5f && distx > -1.5f)
         {
+            blackBox.SetActive(true);
             fadeTimer = 2f;
             animationPlay = true;
          
