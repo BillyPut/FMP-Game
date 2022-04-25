@@ -215,6 +215,10 @@ public class MushroomScript : MonoBehaviour
 
         }
 
+        if (other.gameObject.tag == "RespawnBarrier")
+        {
+            anim.SetBool("Death", true);
+        }
     }
 
 

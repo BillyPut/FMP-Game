@@ -51,11 +51,11 @@ public class Helper : MonoBehaviour
     {
         float rayLength = 0.5f;
         float x = obj.transform.position.x - 0.05f;
-        float y = obj.transform.position.y - 0.1f;
+        float y = obj.transform.position.y;
 
         int layerMask = LayerMask.GetMask("platform");
 
-        print("lm=" + layerMask);
+        //print("lm=" + layerMask);
 
         //cast a ray downward of length 1
         RaycastHit2D hit = Physics2D.Raycast(new Vector3(x, y, obj.transform.position.z), -Vector2.up, rayLength, layerMask);

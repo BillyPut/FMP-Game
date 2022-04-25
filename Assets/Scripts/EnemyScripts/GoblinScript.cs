@@ -218,6 +218,11 @@ public class GoblinScript : MonoBehaviour
 
         }
 
+        if (other.gameObject.tag == "RespawnBarrier")
+        {
+            anim.SetBool("Death", true);
+        }
+
     }
 
 

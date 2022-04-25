@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     public float invulnerability;
     public bool attacking = false;
     public GameObject hitBox;
+    public GameObject airHitBox;
     public bool damaged;
     public bool dash = false;
     public bool airSlash = false;
@@ -33,7 +34,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     
         invulnerability -= Time.deltaTime;
      
@@ -56,6 +57,18 @@ public class PlayerScript : MonoBehaviour
             attacking = false;
             hitBox.SetActive(false);
         }
+
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightAttack2"))
+        {
+            
+
+        }
+        else
+        {
+            
+            airHitBox.SetActive(false);
+        }
+
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightHit"))
         {
@@ -217,13 +230,25 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("Attack", true);
             attackCooldown = 0.7f;
         }
-       
+
+        if (Input.GetMouseButtonDown(0) && result == false && attackCooldown <= 0 && airSlash == true)
+        {
+
+            anim.SetBool("Attack2", true);
+            attackCooldown = 0.7f;
+        }
+
 
     }
 
     void EndAttack()
     {
         anim.SetBool("Attack", false);
+    }
+
+    void EndAirAttack()
+    {
+        anim.SetBool("Attack2", false);
     }
 
     void EndHit()
@@ -235,9 +260,15 @@ public class PlayerScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+   
     void ActivateHitbox()
     {
         hitBox.SetActive(true);
+    }
+
+    void ActivateAirHitbox()
+    {
+        airHitBox.SetActive(true);
     }
 
     public void UnlockDash()
