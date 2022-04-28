@@ -15,6 +15,7 @@ public class GoblinScript : MonoBehaviour
     public GameObject enemyHurtBox;
     public GameObject player;
     public bool attacking;
+   
 
 
     // Start is called before the first frame update
@@ -32,6 +33,8 @@ public class GoblinScript : MonoBehaviour
 
 
         FollowPlayer();
+
+        
 
         if (health == 0)
         {
@@ -91,7 +94,10 @@ public class GoblinScript : MonoBehaviour
 
         Vector2 velocity = rb.velocity;
 
+
         velocity.x = 0;
+
+
 
         if (distx < 15 && distx > 0 && disty < 3.5 && disty > -2.5)
         {
@@ -110,7 +116,7 @@ public class GoblinScript : MonoBehaviour
 
             if (attackCooldown < 0)
             {
-                
+
                 attacking = true;
                 Helper.FlipSprite(gameObject, Left);
                 anim.SetBool("Attack", true);
@@ -121,12 +127,12 @@ public class GoblinScript : MonoBehaviour
         }
         if (distx < 0 && distx > -3.5 && disty < 3.5 && disty > -2.5)
         {
-            
+
             velocity.x = 0;
 
             if (attackCooldown < 0)
             {
-                
+
                 attacking = true;
                 Helper.FlipSprite(gameObject, Right);
                 anim.SetBool("Attack", true);
@@ -134,12 +140,16 @@ public class GoblinScript : MonoBehaviour
             }
 
         }
-        
+
         if (attacking == true)
         {
             velocity.x = 0;
 
         }
+
+
+
+
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("GoblinHit"))
         {
@@ -148,7 +158,6 @@ public class GoblinScript : MonoBehaviour
 
 
         }
-
 
         if (velocity.x > 0 || velocity.x < 0)
         {
@@ -159,16 +168,24 @@ public class GoblinScript : MonoBehaviour
             anim.SetBool("Walk", false);
         }
 
+
         if (velocity.x < -0.5)
         {
             Helper.FlipSprite(gameObject, Left);
+           
+
 
         }
         if (velocity.x > 0.5f)
         {
             Helper.FlipSprite(gameObject, Right);
+           
 
         }
+
+
+
+
 
 
 

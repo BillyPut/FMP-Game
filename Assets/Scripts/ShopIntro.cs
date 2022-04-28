@@ -16,6 +16,7 @@ public class ShopIntro : MonoBehaviour
     public bool refused = false;
     public bool doneText = false;
     public float readTimer = 0.5f;
+    public int collectibleAmount = 5;
     public PlayerScript collectibleTracker;
 
 
@@ -62,7 +63,7 @@ public class ShopIntro : MonoBehaviour
 
         if (shopping == true && Input.GetKeyDown("e") && readTimer < 0 && doneText == false)
         {
-            if (collectibleTracker.collectibles >= 5)
+            if (collectibleTracker.collectibles >= collectibleAmount)
             {
                 buyText.SetActive(true);
                 introText.SetActive(false);
@@ -70,7 +71,7 @@ public class ShopIntro : MonoBehaviour
 
 
             }
-            if (collectibleTracker.collectibles < 5)
+            if (collectibleTracker.collectibles < collectibleAmount)
             {
                 refuseText.SetActive(true);
                 introText.SetActive(false);

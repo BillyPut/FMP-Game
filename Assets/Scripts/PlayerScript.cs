@@ -19,8 +19,10 @@ public class PlayerScript : MonoBehaviour
     public bool damaged;
     public bool dash = false;
     public bool airSlash = false;
+    public bool revive = false; 
     public bool dashing = false;
     public bool facingLeft = false;
+    public bool revived = false;
 
 
     // Start is called before the first frame update
@@ -85,7 +87,8 @@ public class PlayerScript : MonoBehaviour
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightDeath"))
         {
             Helper.SetVelocity(0f, 0f, gameObject);
-            
+            anim.SetBool("Attack", false);
+
         }
     }
 
@@ -258,7 +261,17 @@ public class PlayerScript : MonoBehaviour
 
     void KillPlayer()
     {
-        Destroy(gameObject);
+        if (revive == true && revived == false)
+        {
+            health = 5;
+            anim.SetBool("Death", false);
+            revived = true;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+      
     }
    
     void ActivateHitbox()
@@ -279,6 +292,11 @@ public class PlayerScript : MonoBehaviour
     public void UnlockAirSlash()
     {
         airSlash = true;
+    }
+
+    public void UnlockRevive()
+    {
+        revive = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
