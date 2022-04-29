@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: b9517addf15136e47a89337d912454b0
+guid: a48b0037be4645c4c913e26853a053cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6991849013916550155
-    second: Death_0
+      213: 3743957659742367504
+    second: Move_0
   - first:
-      213: -276728812324164698
-    second: Death_1
+      213: 8405476814967859603
+    second: Move_1
   - first:
-      213: 3156895337291164288
-    second: Death_2
+      213: -5086530901905536447
+    second: Move_2
   - first:
-      213: 1400002288684528572
-    second: Death_3
+      213: 1521079245874940812
+    second: Move_3
+  - first:
+      213: 4010896587680814743
+    second: Move_4
+  - first:
+      213: 8831429847189535439
+    second: Move_5
+  - first:
+      213: 2035570627030528938
+    second: Move_6
+  - first:
+      213: 2303739067743378419
+    second: Move_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,13 +151,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: Move_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 58
-        width: 41
-        height: 31
+        x: 50
+        y: 49
+        width: 48
+        height: 65
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0449ad32a9080160800000000000000
-      internalID: 6991849013916550155
+      spriteID: 01feb0bb7a535f330800000000000000
+      internalID: 3743957659742367504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_1
+      name: Move_1
       rect:
         serializedVersion: 2
-        x: 219
-        y: 51
-        width: 19
-        height: 29
+        x: 201
+        y: 49
+        width: 48
+        height: 61
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ab6d428c9cd82cf0800000000000000
-      internalID: -276728812324164698
+      spriteID: 399e0fb01a046a470800000000000000
+      internalID: 8405476814967859603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_2
+      name: Move_2
       rect:
         serializedVersion: 2
         x: 350
         y: 49
-        width: 58
-        height: 13
+        width: 48
+        height: 67
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08aa354559b8fcb20800000000000000
-      internalID: 3156895337291164288
+      spriteID: 14a8fd428130969b0800000000000000
+      internalID: -5086530901905536447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_3
+      name: Move_3
       rect:
         serializedVersion: 2
-        x: 503
+        x: 500
         y: 49
-        width: 52
-        height: 15
+        width: 48
+        height: 67
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +228,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb376cdf9aecd6310800000000000000
-      internalID: 1400002288684528572
+      spriteID: c8b489dd385fb1510800000000000000
+      internalID: 1521079245874940812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Move_4
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 49
+        width: 48
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7969a83223199a730800000000000000
+      internalID: 4010896587680814743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Move_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 49
+        width: 48
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcab384b7aa8f8a70800000000000000
+      internalID: 8831429847189535439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Move_6
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 49
+        width: 48
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3bf5b43bccf3c10800000000000000
+      internalID: 2035570627030528938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Move_7
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 49
+        width: 48
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb9804f97688ff10800000000000000
+      internalID: 2303739067743378419
       vertices: []
       indices: 
       edges: []
