@@ -223,12 +223,12 @@ public class WizardScript : MonoBehaviour
     {
         if (transform.rotation.y == 0)
         {
-            Helper.MakeBullet(projectilePrefab, transform.position.x + 1.5f, transform.position.y + 1f, 6f, 0);
+            Helper.MakeBullet(projectilePrefab, transform.position.x + 1.5f, transform.position.y + 1.5f, 6f, 0);
 
         }
         else
         {
-            Helper.MakeBullet(projectilePrefab, transform.position.x - 1.5f, transform.position.y + 1f, -6f, 0);
+            Helper.MakeBullet(projectilePrefab, transform.position.x - 1.5f, transform.position.y + 1.5f, -6f, 0);
         }
 
 

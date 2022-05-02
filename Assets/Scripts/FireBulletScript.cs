@@ -14,6 +14,7 @@ public class FireBulletScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.Rotate(new Vector3(0, 1, 180));
         
     }
 
@@ -21,7 +22,7 @@ public class FireBulletScript : MonoBehaviour
     void Update()
     {
 
-        Vector2 velocity = rb.velocity;
+        
 
         destroyTimer -= Time.deltaTime;
 

@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 3384493420599841878
     second: Idle_7
+  - first:
+      213: -2331352242086191015
+    second: Idle_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
