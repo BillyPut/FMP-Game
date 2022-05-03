@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SkullDropper : MonoBehaviour
 {
-    public float dropTimer = 2f;
+    public float dropTimer;
+    public float originalDropTime;
+    public float dropGap;
     public GameObject skullPrefab;
+    public GameObject player;
 
 
 
@@ -18,12 +21,35 @@ public class SkullDropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dropTimer -= Time.deltaTime;
+        float ex = transform.position.x;
+        float px = player.transform.position.x;
+       
 
-        if (dropTimer <= 0)
+        float distx = ex - px;
+
+
+        
+
+        if (distx < 15 && distx > -15)
         {
-            Helper.MakeBullet(skullPrefab, transform.position.x, transform.position.y - 0.5f, 0, 0);
-            dropTimer = 5;
+
+            dropTimer -= Time.deltaTime;
+
+            if (dropTimer <= 0)
+            {
+                Helper.MakeBullet(skullPrefab, transform.position.x, transform.position.y - 0.5f, 0, 0);
+                dropTimer = dropGap;
+            }
+
+            
+
         }
+        else
+        {
+            dropTimer = originalDropTime;
+        }
+        
+            
+        
     }
 }

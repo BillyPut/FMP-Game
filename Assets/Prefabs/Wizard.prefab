@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 919039227145889249}
   - component: {fileID: 919039227145889248}
   - component: {fileID: 919039227145889251}
-  - component: {fileID: 919039227145889250}
+  - component: {fileID: 5534042274301453667}
   m_Layer: 7
   m_Name: Wizard
   m_TagString: Enemy
@@ -397,7 +397,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &919039227145889250
+--- !u!114 &5534042274301453667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

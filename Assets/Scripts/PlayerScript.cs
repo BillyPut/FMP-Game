@@ -87,7 +87,7 @@ public class PlayerScript : MonoBehaviour
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightDeath"))
         {
-            Helper.SetVelocity(0f, 0f, gameObject);
+            Helper.SetVelocity(0f, -5f, gameObject);
             anim.SetBool("Attack", false);
 
         }
@@ -313,7 +313,7 @@ public class PlayerScript : MonoBehaviour
             invulnerability = 2;
 
 
-            Helper.SetVelocity(20f, 2.5f, gameObject);
+            Helper.SetVelocity(0, 2.5f, gameObject);
             anim.SetBool("Hit", true);
 
 
