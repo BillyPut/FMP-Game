@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropEnemyScript : MonoBehaviour
+public class BossStarterScript : MonoBehaviour
 {
-    public GameObject holder1;
-    public GameObject holder2;
-    public bool dropGate; 
+    public GameObject mainCamera;
+    public GameObject bossCamera;
+    public GameObject bossWall;
 
 
     // Start is called before the first frame update
@@ -21,14 +21,14 @@ public class DropEnemyScript : MonoBehaviour
         
     }
 
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(holder1);
-            Destroy(holder2);
-            dropGate = true;
+            mainCamera.SetActive(false);
+            bossCamera.SetActive(true);
+            bossWall.SetActive(true);
         }
     }
+
 }

@@ -102,7 +102,7 @@ public class HazardWizardScript : MonoBehaviour
 
 
       
-        if (distx < 15 && distx > 0 && disty < 3.5 && disty > -2.5)
+        if (distx < 15 && distx > 0 && disty < 3.5 && disty > -3.5)
         {
             velocity.x = 0;
 
@@ -117,7 +117,7 @@ public class HazardWizardScript : MonoBehaviour
 
 
         }
-        if (distx < 0 && distx > -15 && disty < 3.5 && disty > -2.5)
+        if (distx < 0 && distx > -15 && disty < 3.5 && disty > -3.5)
         {
 
             velocity.x = 0;
@@ -213,12 +213,12 @@ public class HazardWizardScript : MonoBehaviour
     {
         if (transform.rotation.y == 0)
         {
-            Helper.MakeBullet(projectilePrefab, transform.position.x + 1.5f, transform.position.y + 1.5f, 6f, 0);
+            Helper.MakeBullet(projectilePrefab, transform.position.x + 1.5f, transform.position.y + 1.6f, 6f, 0);
 
         }
         else
         {
-            Helper.MakeBullet(projectilePrefab, transform.position.x - 1.5f, transform.position.y + 1.5f, -6f, 0);
+            Helper.MakeBullet(projectilePrefab, transform.position.x - 1.5f, transform.position.y + 1.6f, -6f, 0);
         }
 
 
