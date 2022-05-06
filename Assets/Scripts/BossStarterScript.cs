@@ -9,6 +9,7 @@ public class BossStarterScript : MonoBehaviour
     public GameObject bossWall;
     public GameObject mainCanvas;
     public GameObject bossCanvas;
+    public GameObject boss;
 
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class BossStarterScript : MonoBehaviour
             bossCamera.SetActive(true);
             bossWall.SetActive(true);
             bossCanvas.SetActive(true);
+            boss.SetActive(true);
         }
     }
 
