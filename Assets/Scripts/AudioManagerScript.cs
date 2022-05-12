@@ -28,6 +28,22 @@ public class AudioManagerScript : MonoBehaviour
             masterSource.PlayOneShot(sounds[0]);
 
         }
+        if (currentScene == "Level1")
+        {
+            masterSource.PlayOneShot(sounds[1]);
+
+        }
+        if (currentScene == "Level2")
+        {
+            masterSource.PlayOneShot(sounds[2]);
+
+        }
+        if (currentScene == "Level3")
+        {
+            masterSource.PlayOneShot(sounds[3]);
+
+        }
+
 
 
         if (PlayerPrefs.HasKey("volume"))
