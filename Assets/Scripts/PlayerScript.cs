@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Globals;
 
 public class PlayerScript : MonoBehaviour
@@ -23,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     public bool dashing = false;
     public bool facingLeft = false;
     public bool revived = false;
+    public string currentScene;
 
 
     // Start is called before the first frame update
@@ -36,14 +38,17 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    
+
+        currentScene = (SceneManager.GetActiveScene().name);
+
+
         invulnerability -= Time.deltaTime;
      
         if (health == 0)
         {
 
             anim.SetBool("Death", true);
+            
         }
 
         DoJump();
@@ -270,7 +275,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(currentScene);
         }
       
     }

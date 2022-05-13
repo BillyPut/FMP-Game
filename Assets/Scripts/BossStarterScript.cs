@@ -5,11 +5,16 @@ using UnityEngine;
 public class BossStarterScript : MonoBehaviour
 {
     public GameObject mainCamera;
+    public GameObject mainCanvas;
     public GameObject bossCamera;
     public GameObject bossWall;
-    public GameObject mainCanvas;
+    public GameObject healthCounter;
+    public GameObject collectibleCounter;
     public GameObject bossCanvas;
     public GameObject boss;
+    public LevelManagerScript stopPause;
+    
+
 
 
     // Start is called before the first frame update
@@ -28,12 +33,18 @@ public class BossStarterScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            mainCamera.SetActive(false);
-            mainCanvas.SetActive(false);
+            stopPause.openMenu = false;
             bossCamera.SetActive(true);
             bossWall.SetActive(true);
             bossCanvas.SetActive(true);
             boss.SetActive(true);
+            mainCamera.SetActive(false);
+            mainCanvas.SetActive(false);
+            healthCounter.SetActive(false);
+            collectibleCounter.SetActive(false);
+           
+            
+            
         }
     }
 

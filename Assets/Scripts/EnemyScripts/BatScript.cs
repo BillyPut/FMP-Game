@@ -137,7 +137,7 @@ public class BatScript : MonoBehaviour
             }
 
         }
-        if (distx < 2.5 && distx > 0 && disty < 3 && disty > -2)
+        if (distx < 2.5 && distx > 0 && disty < 3 && disty > -1)
         {
             velocity.x = 0;
 
@@ -152,7 +152,7 @@ public class BatScript : MonoBehaviour
 
 
         }
-        if (distx < 0 && distx > -2.5 && disty < 3 && disty > -2)
+        if (distx < 0 && distx > -2.5 && disty < 3 && disty > -1)
         {
 
             velocity.x = 0;

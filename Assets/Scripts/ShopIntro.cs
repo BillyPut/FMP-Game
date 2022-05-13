@@ -9,6 +9,7 @@ public class ShopIntro : MonoBehaviour
     public GameObject introText;
     public GameObject buyText;
     public GameObject refuseText;
+    public LevelManagerScript pauseCheck;
    
     
     public bool shopped = false;
@@ -29,67 +30,75 @@ public class ShopIntro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float ex = transform.position.x;
-        float px = player.transform.position.x;
-        float ey = transform.position.y;
-        float py = player.transform.position.y;
-
-        
-        float disty = ey - py;
-        float distx = ex - px;
-
-        
-
-        if (shopping == false && shopped == false)
+        if (pauseCheck.inMenu == false)
         {
-            if (Input.GetKeyDown("e") && distx < 3 && distx > -3 && disty < 2)
+
+            float ex = transform.position.x;
+            float px = player.transform.position.x;
+            float ey = transform.position.y;
+            float py = player.transform.position.y;
+
+
+            float disty = ey - py;
+            float distx = ex - px;
+
+
+
+            if (shopping == false && shopped == false)
             {
-                introText.SetActive(true);
-                shopping = true;
-                
+                if (Input.GetKeyDown("e") && distx < 3 && distx > -3 && disty < 2)
+                {
+                    pauseCheck.openMenu = false;
+                    introText.SetActive(true);
+                    shopping = true;
+
+                }
+
             }
 
-        }
-
-        if (shopping == true)
-        {
-            readTimer -= Time.unscaledDeltaTime;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-
-        if (shopping == true && Input.GetKeyDown("e") && readTimer < 0 && doneText == false)
-        {
-            if (collectibleTracker.collectibles >= collectibleAmount)
+            if (shopping == true)
             {
-                buyText.SetActive(true);
-                introText.SetActive(false);
-                doneText = true;
-
-
+                readTimer -= Time.unscaledDeltaTime;
+                Time.timeScale = 0;
             }
-            if (collectibleTracker.collectibles < collectibleAmount)
+            else
             {
-                refuseText.SetActive(true);
-                introText.SetActive(false);
+                Time.timeScale = 1;
+            }
+
+            if (shopping == true && Input.GetKeyDown("e") && readTimer < 0 && doneText == false)
+            {
+                if (collectibleTracker.collectibles >= collectibleAmount)
+                {
+                    buyText.SetActive(true);
+                    introText.SetActive(false);
+                    doneText = true;
+
+
+                }
+                if (collectibleTracker.collectibles < collectibleAmount)
+                {
+                    refuseText.SetActive(true);
+                    introText.SetActive(false);
+                    readTimer = 0.5f;
+                    doneText = true;
+                    refused = true;
+
+                }
+            }
+
+            if (refused == true && Input.GetKeyDown("e") && readTimer < 0)
+            {
+                refuseText.SetActive(false);
+                shopping = false;
+                doneText = false;
                 readTimer = 0.5f;
-                doneText = true;
-                refused = true;
-                
+                refused = false;
+                pauseCheck.openMenu = true;
             }
         }
 
-        if (refused == true && Input.GetKeyDown("e") && readTimer < 0)
-        {
-            refuseText.SetActive(false);
-            shopping = false;
-            doneText = false;
-            readTimer = 0.5f;
-            refused = false;
-        }
+
 
 
 
@@ -103,6 +112,7 @@ public class ShopIntro : MonoBehaviour
         shopping = false;
         doneText = false;
         readTimer = 0.5f;
+        pauseCheck.openMenu = true;
     }
 
     public void NotBoughtAbility()
@@ -111,5 +121,6 @@ public class ShopIntro : MonoBehaviour
         shopping = false;
         doneText = false;
         readTimer = 0.5f;
+        pauseCheck.openMenu = true;
     }
 }

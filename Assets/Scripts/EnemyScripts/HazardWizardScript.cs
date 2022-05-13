@@ -71,7 +71,7 @@ public class HazardWizardScript : MonoBehaviour
         {
             enemyHurtBox.SetActive(false);
             attacking = false;
-            box.enabled = false;
+            
             anim.SetBool("Attack", false);
             Helper.SetVelocity(0f, 0f, gameObject);
 

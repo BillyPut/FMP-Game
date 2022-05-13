@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401017683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -120, y: 2.1968682, z: -11633.765}
+  m_LocalPosition: {x: 64, y: 2.1968682, z: -11633.765}
   m_LocalScale: {x: 76.899994, y: 76.899994, z: 76.899994}
   m_Children:
   - {fileID: 1724161704}
@@ -1923,6 +1923,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 1136089944}
+  pauseMenu: {fileID: 0}
+  currentScene: 
+  inMenu: 0
+  openMenu: 1
 --- !u!4 &768287633
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9418793, y: 6.6054993}
+  m_AnchoredPosition: {x: -4.9418793, y: 5.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854414227
