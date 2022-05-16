@@ -15,8 +15,11 @@ public class WizardScript : MonoBehaviour
     public GameObject enemyHurtBox;
     public GameObject player;
     public GameObject projectilePrefab;
+    public GameObject healthPotion;
     public bool attacking;
     public bool left;
+    public PlayerScript healthCheck;
+    public int healthDrop = 80;
 
 
 
@@ -215,6 +218,14 @@ public class WizardScript : MonoBehaviour
 
     void KillWizard()
     {
+        if (healthCheck.health < 3)
+        {
+            if (healthDrop < Random.Range(0, 100))
+            {
+                Helper.MakeBullet(healthPotion, transform.position.x, transform.position.y - 0.04f, 0, 0);
+            }
+        }
+
         Destroy(gameObject);
     }
 

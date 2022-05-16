@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  attackDistanceX: 15
-  attackDistanceY: 3
   attackCooldown: 0
   invulnerability: 0
   enemyHitBox: {fileID: 2043766760846784765}
@@ -30,6 +28,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919039227145889254, guid: df9e360a88e6d39408b9da4e6120a830, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 919039227145889255, guid: df9e360a88e6d39408b9da4e6120a830, type: 3}
       propertyPath: m_RootOrder
       value: 0

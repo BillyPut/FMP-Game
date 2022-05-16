@@ -14,8 +14,11 @@ public class GoblinScript : MonoBehaviour
     public GameObject enemyHitBox;
     public GameObject enemyHurtBox;
     public GameObject player;
+    public GameObject healthPotion;
     public bool attacking;
-   
+    public PlayerScript healthCheck;
+    public int healthDrop = 80;
+
 
 
     // Start is called before the first frame update
@@ -59,7 +62,7 @@ public class GoblinScript : MonoBehaviour
             attacking = false;
             anim.SetBool("Attack", false);
 
-            invulnerability = 0.5f;
+            invulnerability = 0.4f;
             attackCooldown = 2f;
 
         }
@@ -213,6 +216,14 @@ public class GoblinScript : MonoBehaviour
 
     void KillGoblin()
     {
+        if (healthCheck.health < 3)
+        {
+            if (healthDrop < Random.Range(0, 100))
+            {
+                Helper.MakeBullet(healthPotion, transform.position.x, transform.position.y - 0.04f, 0, 0);
+            }
+        }
+
         Destroy(gameObject);
     }
 

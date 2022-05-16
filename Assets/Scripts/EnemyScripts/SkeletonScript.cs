@@ -14,7 +14,10 @@ public class SkeletonScript : MonoBehaviour
     public GameObject enemyHitBox;
     public GameObject enemyHurtBox;
     public GameObject player;
+    public GameObject healthPotion;
     public bool attacking;
+    public PlayerScript healthCheck;
+    public int healthDrop = 80;
 
 
     // Start is called before the first frame update
@@ -197,6 +200,15 @@ public class SkeletonScript : MonoBehaviour
 
     void KillSkeleton()
     {
+
+        if (healthCheck.health < 3)
+        {
+            if (healthDrop < Random.Range(0, 100))
+            {
+                Helper.MakeBullet(healthPotion, transform.position.x, transform.position.y - 0.04f, 0, 0);
+            }
+        }
+
         Destroy(gameObject);
     }
        

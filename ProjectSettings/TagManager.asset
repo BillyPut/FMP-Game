@@ -11,6 +11,8 @@ TagManager:
   - Collectibles
   - RespawnBarrier
   - HealthCollectibles
+  - 3HealthCollectibles
+  - 5HealthCollectibles
   layers:
   - Default
   - TransparentFX

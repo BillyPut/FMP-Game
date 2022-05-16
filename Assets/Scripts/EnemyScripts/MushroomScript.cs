@@ -13,9 +13,11 @@ public class MushroomScript : MonoBehaviour
     public float invulnerability;
     public GameObject enemyHitBox;
     public GameObject enemyHurtBox;
+    public GameObject healthPotion;
     public GameObject player;
     public bool attacking;
-
+    public PlayerScript healthCheck;
+    public int healthDrop = 80;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +58,7 @@ public class MushroomScript : MonoBehaviour
             attacking = false;
             anim.SetBool("Attack", false);
 
-            invulnerability = 0.5f;
+            invulnerability = 0.4f;
             attackCooldown = 2;
 
         }
@@ -193,6 +195,14 @@ public class MushroomScript : MonoBehaviour
 
     void KillMushroom()
     {
+        if (healthCheck.health < 3)
+        {
+            if (healthDrop < Random.Range(0, 100))
+            {
+                Helper.MakeBullet(healthPotion, transform.position.x, transform.position.y - 0.04f, 0, 0);
+            }
+        }
+
         Destroy(gameObject);
     }
 

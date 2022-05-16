@@ -49,9 +49,17 @@ public class Helper : MonoBehaviour
 
     public static bool DoRayCollisionCheck(GameObject obj)
     {
-        float rayLength = 0.5f;
+        float rayLength = 0.3f;
         float x = obj.transform.position.x - 0.05f;
         float y = obj.transform.position.y;
+
+        float rayLength2 = 0.3f;
+        float x2 = obj.transform.position.x - 0.7f;
+        float y2 = obj.transform.position.y;
+
+        float rayLength3 = 0.3f;
+        float x3 = obj.transform.position.x + 0.7f;
+        float y3 = obj.transform.position.y;
 
         int layerMask = LayerMask.GetMask("platform");
 
@@ -59,11 +67,13 @@ public class Helper : MonoBehaviour
 
         //cast a ray downward of length 1
         RaycastHit2D hit = Physics2D.Raycast(new Vector3(x, y, obj.transform.position.z), -Vector2.up, rayLength, layerMask);
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector3(x2, y2, obj.transform.position.z), -Vector2.up, rayLength2, layerMask);
+        RaycastHit2D hit3 = Physics2D.Raycast(new Vector3(x3, y3, obj.transform.position.z), -Vector2.up, rayLength3, layerMask);
 
         Color hitColor = Color.white;
 
 
-        if (hit.collider != null)
+        if (hit.collider != null || hit2.collider != null || hit3.collider != null)
         {
 
 
@@ -73,6 +83,8 @@ public class Helper : MonoBehaviour
                 
                 hitColor = Color.green;
                 Debug.DrawRay(new Vector3(x, y, obj.transform.position.z), -Vector2.up * rayLength, hitColor);
+                Debug.DrawRay(new Vector3(x2, y2, obj.transform.position.z), -Vector2.up * rayLength2, hitColor);
+                Debug.DrawRay(new Vector3(x3, y3, obj.transform.position.z), -Vector2.up * rayLength3, hitColor);
                 return true;
 
             }

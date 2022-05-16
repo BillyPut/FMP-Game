@@ -24,7 +24,13 @@ public class PlayerScript : MonoBehaviour
     public bool dashing = false;
     public bool facingLeft = false;
     public bool revived = false;
+    public bool invulnerable = false;
+    public bool dying = false;
     public string currentScene;
+    
+ 
+
+
 
 
     // Start is called before the first frame update
@@ -32,6 +38,9 @@ public class PlayerScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        
+        
+        
 
     }
 
@@ -43,12 +52,23 @@ public class PlayerScript : MonoBehaviour
 
 
         invulnerability -= Time.deltaTime;
+
+        if (invulnerability > 0 && invulnerable == true)
+        {
+            StartCoroutine(FlashWhite());
+            invulnerable = false;
+        }
      
         if (health == 0)
         {
 
             anim.SetBool("Death", true);
             
+        }
+
+        if (health > 5)
+        {
+            health = 5;
         }
 
         DoJump();
@@ -92,6 +112,7 @@ public class PlayerScript : MonoBehaviour
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightDeath"))
         {
+            dying = true;
             Helper.SetVelocity(0f, -5f, gameObject);
             anim.SetBool("Attack", false);
 
@@ -308,7 +329,7 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-
+       
 
         if (other.gameObject.tag == "EnemyAttackBox" && invulnerability <= 0 || other.gameObject.tag == "Enemy" && invulnerability <= 0)
         {
@@ -321,6 +342,7 @@ public class PlayerScript : MonoBehaviour
             Helper.SetVelocity(0, 2.5f, gameObject);
             anim.SetBool("Hit", true);
 
+            invulnerable = true;
 
         }
 
@@ -331,6 +353,8 @@ public class PlayerScript : MonoBehaviour
             invulnerability = 2;
 
             anim.SetBool("Hit", true);
+
+            invulnerable = true;
 
         }
 
@@ -347,7 +371,31 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    IEnumerator FlashWhite()
+    {
 
+
+        for (int n = 0; n < 5; n++)
+        {
+            if (dying == false)
+            {
+                yield return new WaitForSeconds(0.2f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                yield return new WaitForSeconds(0.2f);
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+           
+
+        }
+
+
+
+
+
+
+
+
+    }
 
 
 
