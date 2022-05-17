@@ -5,7 +5,7 @@ using UnityEngine;
 public class BreakableWallScript : MonoBehaviour
 {
 
-    public int health = 3;
+    public int health = 2;
 
     // Start is called before the first frame update
     void Start()

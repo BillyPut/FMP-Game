@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1341919300}
     m_Modifications:
+    - target: {fileID: 1377937342932153828, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
+      propertyPath: xPosition
+      value: 34.497
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377937342932153828, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
+      propertyPath: yPoisiton
+      value: 72.50795
+      objectReference: {fileID: 0}
     - target: {fileID: 3060518079778133948, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -301,6 +309,14 @@ PrefabInstance:
     - target: {fileID: 4833702996370249672, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
       propertyPath: m_Name
       value: FallingBlocks2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744686838663836211, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
+      propertyPath: xPosition
+      value: 31.506
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744686838663836211, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
+      propertyPath: yPoisiton
+      value: 75.499
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
@@ -1466,6 +1482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66eab734466dceb45841a68acd447b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropDown: {fileID: 1579493132}
+  toggle: {fileID: 1278702494}
+  isOn: 0
 --- !u!1 &158017064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3026,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1341919300}
     m_Modifications:
+    - target: {fileID: 141201264602770892, guid: 388fd9be28ff6594fa4947f58a619e15, type: 3}
+      propertyPath: xPosition
+      value: 33.507
+      objectReference: {fileID: 0}
+    - target: {fileID: 141201264602770892, guid: 388fd9be28ff6594fa4947f58a619e15, type: 3}
+      propertyPath: yPoisiton
+      value: 84.50535
+      objectReference: {fileID: 0}
     - target: {fileID: 141201264602770895, guid: 388fd9be28ff6594fa4947f58a619e15, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4000,7 +4027,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -23816,7 +23843,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -85619,6 +85646,10 @@ PrefabInstance:
       propertyPath: healthPotion
       value: 
       objectReference: {fileID: 3376993191883091656, guid: e9342906e15dc2d44bc7981e9392f81c, type: 3}
+    - target: {fileID: 5022298834857671157, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5022298834857671158, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -86969,6 +87000,10 @@ PrefabInstance:
       propertyPath: healthPotion
       value: 
       objectReference: {fileID: 3376993191883091656, guid: e9342906e15dc2d44bc7981e9392f81c, type: 3}
+    - target: {fileID: 5022298834857671157, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5022298834857671158, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -94005,7 +94040,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -8
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -94789,6 +94824,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1341919300}
     m_Modifications:
+    - target: {fileID: 1377937342932153828, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
+      propertyPath: xPosition
+      value: 30.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377937342932153828, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
+      propertyPath: yPoisiton
+      value: 81.50113
+      objectReference: {fileID: 0}
     - target: {fileID: 3060518079778133948, guid: d9e085f09cae9f24ab68fd7908e309fe, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -94987,6 +95030,10 @@ PrefabInstance:
       propertyPath: healthPotion
       value: 
       objectReference: {fileID: 3376993191883091656, guid: e9342906e15dc2d44bc7981e9392f81c, type: 3}
+    - target: {fileID: 5022298834857671157, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5022298834857671158, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -96317,7 +96364,7 @@ MonoBehaviour:
   hitBox: {fileID: 569021206}
   airHitBox: {fileID: 594000290}
   damaged: 0
-  dash: 1
+  dash: 0
   airSlash: 0
   revive: 0
   dashing: 0
@@ -96326,6 +96373,8 @@ MonoBehaviour:
   invulnerable: 0
   dying: 0
   currentScene: 
+  value: 0
+  value2: 0
 --- !u!4 &1561477965
 Transform:
   m_ObjectHideFlags: 0
@@ -96334,7 +96383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561477963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.47, y: -3.978, z: -0.5}
+  m_LocalPosition: {x: 121.8, y: 87.5, z: -0.5}
   m_LocalScale: {x: 3.2171047, y: 3.386074, z: 1}
   m_Children:
   - {fileID: 569021210}
@@ -96448,7 +96497,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 4723107735738678597, guid: fc46633b0eb321e46838bcb9ff2d4150, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96905,6 +96954,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'FallingBlocks2 '
       objectReference: {fileID: 0}
+    - target: {fileID: 6744686838663836211, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
+      propertyPath: xPosition
+      value: 35.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744686838663836211, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
+      propertyPath: yPoisiton
+      value: 78.50835
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093af85f08b5adc41bd8a8ba17c8e87f, type: 3}
 --- !u!4 &1593002913 stripped
@@ -96935,6 +96992,10 @@ PrefabInstance:
       propertyPath: healthPotion
       value: 
       objectReference: {fileID: 3376993191883091656, guid: e9342906e15dc2d44bc7981e9392f81c, type: 3}
+    - target: {fileID: 5022298834857671157, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5022298834857671158, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -98137,6 +98198,10 @@ PrefabInstance:
       propertyPath: healthPotion
       value: 
       objectReference: {fileID: 3376993191883091656, guid: e9342906e15dc2d44bc7981e9392f81c, type: 3}
+    - target: {fileID: 5022298834857671157, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 5022298834857671158, guid: aa00376b994a9dc40b2efeda0348233d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -99602,7 +99667,7 @@ Transform:
   m_GameObject: {fileID: 2062922576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_Children:
   - {fileID: 361565615}
   - {fileID: 1433219856}

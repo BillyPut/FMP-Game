@@ -305,7 +305,10 @@ MonoBehaviour:
   enemyHitBox: {fileID: 5022298835476199515}
   enemyHurtBox: {fileID: 5022298834807542942}
   player: {fileID: 0}
+  healthPotion: {fileID: 0}
   attacking: 0
+  healthCheck: {fileID: 0}
+  healthDrop: 80
 --- !u!1 &5022298835476199515
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,9 @@ public class PlayerScript : MonoBehaviour
     public bool invulnerable = false;
     public bool dying = false;
     public string currentScene;
+    public int value;
+    public int value2;
+    
     
  
 
@@ -38,7 +41,7 @@ public class PlayerScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        
+       
         
         
 
@@ -46,8 +49,7 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
         currentScene = (SceneManager.GetActiveScene().name);
 
 
@@ -74,6 +76,7 @@ public class PlayerScript : MonoBehaviour
         DoJump();
         DoMove();
         DoAttack();
+        DoPlayerPrefs();
 
         if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerKnightAttack"))
         {
@@ -270,6 +273,61 @@ public class PlayerScript : MonoBehaviour
 
 
     }
+
+    void DoPlayerPrefs()
+    {
+
+        if (PlayerPrefs.HasKey("dash") == true)
+        {
+            value = PlayerPrefs.GetInt("dash");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("dash", 0);
+        }
+
+        if (PlayerPrefs.HasKey("airSlash") == true)
+        {
+            value2 = PlayerPrefs.GetInt("airSlash");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("airSlash", 0);
+        }
+
+
+        if (dash == true)
+        {
+            PlayerPrefs.SetInt("dash", 1);
+        }
+
+
+        if (airSlash == true)
+        {
+            PlayerPrefs.SetInt("airSlash", 1);
+        }
+
+        if (value == 1)
+        {
+            dash = true;
+        }
+        else
+        {
+            dash = false;
+        }
+
+        if (value2 == 1)
+        {
+            airSlash = true;
+        }
+        else
+        {
+            airSlash = false;
+        }
+
+    }
+
+
 
     void EndAttack()
     {
