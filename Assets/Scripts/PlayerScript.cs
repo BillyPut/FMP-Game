@@ -29,9 +29,10 @@ public class PlayerScript : MonoBehaviour
     public string currentScene;
     public int value;
     public int value2;
-    
-    
- 
+    public bool resetAbility;
+
+
+
 
 
 
@@ -41,9 +42,14 @@ public class PlayerScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-       
-        
-        
+
+        currentScene = (SceneManager.GetActiveScene().name);
+
+        if (currentScene == "Level1")
+        {
+            resetAbility = true;
+        }
+
 
     }
 
@@ -325,6 +331,15 @@ public class PlayerScript : MonoBehaviour
             airSlash = false;
         }
 
+        if (resetAbility == true)
+        {
+            PlayerPrefs.SetInt("dash", 0);
+            PlayerPrefs.SetInt("airSlash", 0);
+            dash = false;
+            airSlash = false;
+            resetAbility = false;
+        }
+
     }
 
 
@@ -425,7 +440,22 @@ public class PlayerScript : MonoBehaviour
         {
             health += 1;
         }
-       
+
+        if (other.gameObject.tag == "HealthCollectibles")
+        {
+            health += 1;
+        }
+
+        if (other.gameObject.tag == "3HealthCollectibles")
+        {
+            health += 3;
+        }
+
+        if (other.gameObject.tag == "5HealthCollectibles")
+        {
+            health += 5;
+        }
+
 
     }
 

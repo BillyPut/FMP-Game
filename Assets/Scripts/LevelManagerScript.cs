@@ -9,6 +9,7 @@ public class LevelManagerScript : MonoBehaviour
 
     public GameObject startButton;
     public GameObject pauseMenu;
+   
 
     public string currentScene;
 
@@ -27,7 +28,7 @@ public class LevelManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         currentScene = (SceneManager.GetActiveScene().name);
 
 
@@ -57,10 +58,7 @@ public class LevelManagerScript : MonoBehaviour
 
 
 
-    public void StartButtonPressed()
-    {
-        SceneManager.LoadScene("Level1");
-    }
+    
 
     public void ResumeGame()
     {
@@ -80,6 +78,8 @@ public class LevelManagerScript : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("Scene1");
     }
+
+
 
 
 }

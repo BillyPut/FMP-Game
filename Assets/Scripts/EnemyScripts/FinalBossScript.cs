@@ -12,6 +12,7 @@ public class FinalBossScript : MonoBehaviour
     public GameObject enemyHitBox;
     public GameObject enemyHurtBox;
     public SpellAttackScript beginCast;
+    public PlayerScript abilityReset;
     public EndOfGameTransfer endGame;
     public GameObject player;
     public GameObject bossFloater;
@@ -52,6 +53,7 @@ public class FinalBossScript : MonoBehaviour
             if (deathCountdown <= 0)
             {
                 endGame.startTransfer = true;
+                abilityReset.resetAbility = true;
                 gameObject.SetActive(false);
                 
             }

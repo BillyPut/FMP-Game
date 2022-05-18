@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BreakableWallScript : MonoBehaviour
 {
-
+    private Animator anim;
     public int health = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,11 @@ public class BreakableWallScript : MonoBehaviour
         }
     }
 
+    void EndHit()
+    {
+        anim.SetBool("WallHit", false);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -29,7 +34,7 @@ public class BreakableWallScript : MonoBehaviour
         if (other.gameObject.tag == "PlayerAttackBox")
         {
             health = health - 1;
-
+            anim.SetBool("WallHit", true);
 
 
         }
