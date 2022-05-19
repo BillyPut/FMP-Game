@@ -124,6 +124,7 @@ public class PlayerScript : MonoBehaviour
             dying = true;
             Helper.SetVelocity(0f, -5f, gameObject);
             anim.SetBool("Attack", false);
+            anim.SetBool("Hit", false);
 
         }
     }

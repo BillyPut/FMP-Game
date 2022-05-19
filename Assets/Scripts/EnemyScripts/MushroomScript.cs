@@ -58,7 +58,7 @@ public class MushroomScript : MonoBehaviour
             attacking = false;
             anim.SetBool("Attack", false);
 
-            invulnerability = 0.4f;
+            invulnerability = 0.2f;
             attackCooldown = 2;
 
         }
