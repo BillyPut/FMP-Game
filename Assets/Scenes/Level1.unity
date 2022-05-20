@@ -97020,7 +97020,7 @@ GameObject:
   - component: {fileID: 912993189}
   - component: {fileID: 912993190}
   m_Layer: 0
-  m_Name: HitboxSprite
+  m_Name: Attack2_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -39,7 +39,7 @@ public class SettingsScript : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("drop", 3);
+            PlayerPrefs.SetInt("drop", 5);
             dropDown.value = PlayerPrefs.GetInt("drop");
         }
 
