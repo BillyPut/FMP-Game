@@ -442,11 +442,6 @@ public class PlayerScript : MonoBehaviour
             health += 1;
         }
 
-        if (other.gameObject.tag == "HealthCollectibles")
-        {
-            health += 1;
-        }
-
         if (other.gameObject.tag == "3HealthCollectibles")
         {
             health += 3;

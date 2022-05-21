@@ -23,6 +23,8 @@ public class AudioManagerScript : MonoBehaviour
     {
         currentScene = (SceneManager.GetActiveScene().name);
 
+        StartCoroutine(SongRepeat());
+
         if (currentScene == "Scene1")
         {
             masterSource.PlayOneShot(sounds[0]);
@@ -68,5 +70,32 @@ public class AudioManagerScript : MonoBehaviour
         PlayerPrefs.SetFloat("volume", volume);
     }
 
-
+    IEnumerator SongRepeat()
+    {
+        while (true)
+        {
+            if (currentScene == "Scene1")
+            {
+                yield return new WaitForSecondsRealtime(255.2f);
+                masterSource.PlayOneShot(sounds[0]);
+            }
+            if (currentScene == "Level1")
+            {
+                yield return new WaitForSecondsRealtime(255.1f);
+                masterSource.PlayOneShot(sounds[1]);
+            }
+            if (currentScene == "Level2")
+            {
+                yield return new WaitForSecondsRealtime(75.3f);
+                masterSource.PlayOneShot(sounds[2]);
+            }
+            if (currentScene == "Level3")
+            {
+                yield return new WaitForSecondsRealtime(135.2f);
+                masterSource.PlayOneShot(sounds[3]);
+            }
+        }
+     
+        
+    }
 }
