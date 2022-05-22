@@ -94878,7 +94878,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 4723107735738678597, guid: 174209194dbf2fb44aef1ea1ba76a2f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96044,6 +96044,7 @@ GameObject:
   - component: {fileID: 729379564}
   - component: {fileID: 729379563}
   - component: {fileID: 729379562}
+  - component: {fileID: 729379565}
   m_Layer: 0
   m_Name: InteractDoorText
   m_TagString: Untagged
@@ -96204,6 +96205,17 @@ RectTransform:
   m_AnchoredPosition: {x: 455.44, y: -5.74}
   m_SizeDelta: {x: 2.659, y: 0.6987}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &729379565
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729379561}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
 --- !u!1 &734333508
 GameObject:
   m_ObjectHideFlags: 0
@@ -97653,6 +97665,7 @@ GameObject:
   - component: {fileID: 940320295}
   - component: {fileID: 940320294}
   - component: {fileID: 940320293}
+  - component: {fileID: 940320296}
   m_Layer: 0
   m_Name: InteractText
   m_TagString: Untagged
@@ -97813,6 +97826,17 @@ RectTransform:
   m_AnchoredPosition: {x: -58.999573, y: 2.0172272}
   m_SizeDelta: {x: 2.659, y: 0.6987}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &940320296
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940320292}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
 --- !u!1001 &941822816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129639,6 +129663,7 @@ GameObject:
   - component: {fileID: 2135267059}
   - component: {fileID: 2135267058}
   - component: {fileID: 2135267057}
+  - component: {fileID: 2135267060}
   m_Layer: 0
   m_Name: ObjectiveText
   m_TagString: Untagged
@@ -129799,6 +129824,17 @@ RectTransform:
   m_AnchoredPosition: {x: 3.64, y: -7.16}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &2135267060
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135267056}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
 --- !u!1001 &2141080182
 PrefabInstance:
   m_ObjectHideFlags: 0

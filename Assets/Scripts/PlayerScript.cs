@@ -113,6 +113,7 @@ public class PlayerScript : MonoBehaviour
             attacking = false;
             hitBox.SetActive(false);
             anim.SetBool("Attack", false);
+            anim.SetBool("Attack2", false);
         }
         else
         {

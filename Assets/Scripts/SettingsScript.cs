@@ -48,17 +48,23 @@ public class SettingsScript : MonoBehaviour
 
     void Update()
     {
-        if (toggle.isOn)
+        if (toggle.isOn == true)
         {
             PlayerPrefs.SetInt("IsOn", 1);
+            
         }
         else
         {
             PlayerPrefs.SetInt("IsOn", 0);
         }
+
+
+
+      
+
     }
 
-   public void SetQuality (int qualityIndex)
+    public void SetQuality (int qualityIndex)
    { 
       
         QualitySettings.SetQualityLevel(qualityIndex);
@@ -68,6 +74,14 @@ public class SettingsScript : MonoBehaviour
 
    public void SetFullscreen (bool isFullscreen)
    {
-        Screen.fullScreen = isFullscreen;
+        if (isFullscreen == true)
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow; 
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+
    }
 }
