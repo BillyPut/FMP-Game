@@ -74,6 +74,8 @@ public class PlayerScript : MonoBehaviour
             
         }
 
+        
+
         if (health > 5)
         {
             health = 5;
