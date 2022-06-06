@@ -13,6 +13,9 @@ public class StartGameTransition : MonoBehaviour
     public bool coroutineBegin;
     public float fadeTimer;
     public bool coroutineCheck;
+    public bool level1;
+    public bool level2;
+    public bool level3;
     
 
 
@@ -44,8 +47,21 @@ public class StartGameTransition : MonoBehaviour
 
         if (fadeTimer <= 0 && timerDown == true)
         {
-            SceneManager.LoadScene("Level1");
+            if (level1 == true)
+            {
+                SceneManager.LoadScene("Level1");
+            }
+            if (level2 == true)
+            {
+                SceneManager.LoadScene("Level2");
+            }
+            if (level3 == true)
+            {
+                SceneManager.LoadScene("Level3");
+            }
+            
         }
+
 
         if (fadeTimer <= 2 && timerDown == true)
         {
@@ -67,9 +83,20 @@ public class StartGameTransition : MonoBehaviour
     {
         
         startFade = true;
+        level1 = true;
         
+    }
 
-        
+    public void BeginLevel2()
+    {
+        startFade = true;
+        level2 = true;
+    }
+
+    public void BeginLevel3()
+    {
+        startFade = true;
+        level3 = true;
     }
 
     IEnumerator IntroCoroutine()
