@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour
     { 
         currentScene = (SceneManager.GetActiveScene().name);
 
-
+        
         invulnerability -= Time.deltaTime;
 
         if (invulnerability > 0 && invulnerable == true)
@@ -134,9 +134,12 @@ public class PlayerScript : MonoBehaviour
 
     void DoJump()
     {
+       
 
         bool result = Helper.DoRayCollisionCheck(gameObject);
         Vector2 velocity = rb.velocity;
+
+      
 
         if (Input.GetKey("w") && (result == true))
         {
